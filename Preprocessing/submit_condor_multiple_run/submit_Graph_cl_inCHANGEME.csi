@@ -1,0 +1,17 @@
+universe = vanilla
+notification = Error
+notify_user = federica.cuna@ba.infn.it
+request_cpus = 1
+request_disk = 1024
+request_memory = 4096
+rank = Memory
+requirements = MaxHosts == 1
+initialdir = /lustrehome/federicacuna/TB_Sept_2023_ml/Code/Preprocessing/
+getenv = true
+
+output =  /lustrehome/federicacuna/TB_Sept_2023_ml/output_condor/run_analysis.$(Cluster).$(Process).out
+error =  /lustrehome/federicacuna/TB_Sept_2023_ml/output_condor/run_analysis.$(Cluster).$(Process).err
+log =  /lustrehome/federicacuna/TB_Sept_2023_ml/output_condor/run_analysis.$(Cluster).$(Process).log
+executable = run_analysis_simple.sh
+arguments = ./Graph_cl.py /lustrehome/federicacuna/TB_Sept_2023_ml/Data/simulated/pi-_10GeV_4ly_3e-4_inclined/ TrkData_viewx_cl_TB_2023_T10_Sept_pi-Mono_10000_inclined_10000-evt-CHANGEME_pitch0.25 TrkData_viewy_cl_TB_2023_T10_Sept_pi-Mono_10000_inclined_10000-evt-CHANGEME_pitch0.25 1 -211 0
+queue
